@@ -1,4 +1,4 @@
-package com.ua.tryreddit.domain.api
+package com.ua.tryreddit.data.api
 
 import com.ua.tryreddit.domain.models.http.NewsResponse
 import kotlinx.coroutines.Deferred

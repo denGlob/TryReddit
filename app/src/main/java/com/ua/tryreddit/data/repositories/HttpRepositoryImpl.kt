@@ -1,7 +1,7 @@
 package com.ua.tryreddit.data.repositories
 
 import com.ua.tryreddit.data.engines.NetEngine
-import com.ua.tryreddit.domain.api.RedditApi
+import com.ua.tryreddit.data.api.RedditApi
 import com.ua.tryreddit.domain.models.http.NewsResponse
 import com.ua.tryreddit.domain.repositories.HttpRepository
 import kotlinx.coroutines.Deferred
