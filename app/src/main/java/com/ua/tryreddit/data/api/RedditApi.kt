@@ -10,15 +10,15 @@ interface RedditApi {
 
     @GET("/r/{subreddit}/top.json")
     fun getRedditTop(@Path("subreddit") subreddit: String,
-                     @Query("limit") limit: String): Deferred<NewsResponse>
+                     @Query("limit") limit: Int): Deferred<NewsResponse>
 
 
     @GET("/r/{subreddit}/top.json")
     fun getRedditTopBefore(@Path("subreddit") subreddit: String,
                           @Query("before") after: String,
-                          @Query("limit") limit: String): Deferred<NewsResponse>
+                          @Query("limit") limit: Int): Deferred<NewsResponse>
     @GET("/r/{subreddit}/top.json")
     fun getRedditTopAfter(@Path("subreddit") subreddit: String,
                           @Query("after") after: String,
-                          @Query("limit") limit: String): Deferred<NewsResponse>
+                          @Query("limit") limit: Int): Deferred<NewsResponse>
 }
