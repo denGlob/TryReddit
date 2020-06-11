@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TryReddit</string>
+    <string name="retry_text">Retry</string>
 </resources>

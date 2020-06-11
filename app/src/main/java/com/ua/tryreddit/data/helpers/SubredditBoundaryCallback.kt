@@ -29,7 +29,10 @@ class SubredditBoundaryCallback(
         pagingHelper.runIfNotRunning(PagingRequestHelper.RequestType.INITIAL) {
             GlobalScope.launch(Dispatchers.IO) {
                 try {
-
+                    val result = requestApi.getRedditTop(
+                        subreddit = request,
+                        limit = pageSize).await()
+                    toDb(result, it)
                 } catch (e: Exception) {
                     it.recordFailure(e)
                 }
@@ -43,11 +46,22 @@ class SubredditBoundaryCallback(
         pagingHelper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
             GlobalScope.launch(Dispatchers.IO) {
                 try {
-
+                    val result = requestApi.getRedditTopAfter(
+                        subreddit = request,
+                        after = itemAtEnd.name,
+                        limit = pageSize).await()
+                    toDb(result, it)
                 } catch (e: Exception) {
                     it.recordFailure(e)
                 }
             }
+        }
+    }
+
+    private fun toDb(data: NewsResponse, pagingCallback: PagingRequestHelper.Request.Callback) {
+        executor.execute {
+            responseHandler(request, data)
+            pagingCallback.recordSuccess()
         }
     }
 }

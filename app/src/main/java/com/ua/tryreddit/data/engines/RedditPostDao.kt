@@ -13,7 +13,7 @@ interface RedditPostDao {
     fun insert(items: List<ChildData>)
 
     @Query("SELECT * FROM reddit_data WHERE subreddit = :subreddit ORDER BY responseIndex ASC")
-    fun itemsBySubreddit(subreddit: String) : DataSource.Factory<Int, String>
+    fun itemsBySubreddit(subreddit: String) : DataSource.Factory<Int, ChildData>
 
     @Query("DELETE FROM reddit_data WHERE subreddit = :subreddit")
     fun deleteBySubreddit(subreddit: String)
