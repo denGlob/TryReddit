@@ -1,9 +1,9 @@
-package com.ua.tryreddit.domain.repositories.boundary
+package com.ua.tryreddit.data.helpers
 
-import androidx.paging.PagedList
+import com.ua.tryreddit.domain.helpers.AbstractRedditBoundaryCallback
 import com.ua.tryreddit.domain.models.ChildData
 
-class RedditBoundaryCallback : PagedList.BoundaryCallback<ChildData>() {
+class SubredditBoundaryCallback: AbstractRedditBoundaryCallback() {
 
     override fun onZeroItemsLoaded() {
         super.onZeroItemsLoaded()

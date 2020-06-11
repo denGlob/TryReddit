@@ -1,4 +1,4 @@
-package com.ua.tryreddit.domain.network
+package com.ua.tryreddit.domain.helpers
 
 sealed class NetworkState() {
     class Success() : NetworkState()
